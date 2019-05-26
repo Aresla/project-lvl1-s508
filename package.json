@@ -1,0 +1,31 @@
+{
+  "name": "braingamestatya",
+  "version": "1.0.9",
+  "description": "series of small games",
+  "main": "dist/index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "babel-node": "babel-node",
+    "build": "cross-env NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "Tatiana Panteleychuk",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-pipeline-operator": "^7.3.2",
+    "@babel/preset-env": "^7.4.5",
+    "cross-env": "^5.2.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.9",
+    "source-map-support": "^0.5.12"
+  }
+}
