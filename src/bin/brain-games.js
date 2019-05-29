@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {great} from "../index";
+// eslint-disable-next-line import/named
+import { great } from "../index";
 
 great();
-
