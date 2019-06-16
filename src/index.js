@@ -1,44 +1,43 @@
 import readlineSync from 'readline-sync';
-import { generateWholeNum } from './helpers/generate-whole-num';
+import { getGameExplanation } from "./helpers/getGameExplanation";
+import { getTask } from "./helpers/getTask";
+import { checkIfGameOver } from "./helpers/checkIfGameOver";
+import { getAfterGameMessage } from "./helpers/getAfterGameMessage";
+import { getNewCorrectAnswersCount } from "./helpers/getNewCorrectAnswersCount";
+import { getUserName } from "./helpers/getUserName";
+import { getConclusionMessage } from "./helpers/getConclusionMessage";
+import { car, cdr } from "hexlet-pairs";
 
-// eslint-disable-next-line import/prefer-default-export
+// gameName:
+//   even
+//   calc
+//   gcd
 
-const getUserName = () => {
-  const userName = readlineSync.question('May I have your name?');
-  console.log(`Hello, ${userName}!`);
-  return userName;
-};
+const welcomeMessage = 'Welcome to the Brain Games!';
 
-const greeting = () => {
-  console.log('Welcome to the Brain Games! Answer "yes" if number even otherwise answer "no".');
-};
-
-const checkParity = questionNum => (questionNum % 2 === 0) ? 'yes' : 'no';
-
-const replyUser = (questionNum, answer, userName) => answer === checkParity(questionNum)
-  ? 'Correct!'
-  : `${answer} is wrong answer ;(. Correct answer was ${checkParity(questionNum)}. Let's try again, ${userName}!`;
-
-const game = (userName) => {
-  const questionNum = generateWholeNum();
-  console.log(questionNum);
-  const answer = readlineSync.question('Your answer?');
-  console.log(replyUser(questionNum, answer, userName));
-  const isAnswerCorrect = checkParity(questionNum) === answer;
-  return isAnswerCorrect;
-};
-
-const myGame = () => {
-  greeting();
+export const gameEngine = (gameName) => {
+  console.log(welcomeMessage);
+  const gameExplanation = getGameExplanation(gameName);
+  console.log(gameExplanation);
   const userName = getUserName();
+  console.log(`Hello, ${userName}!`);
 
-  let numberOfCorrectAnswers = 0;
-
-  while (numberOfCorrectAnswers < 3) {
-    numberOfCorrectAnswers = game(userName) ? numberOfCorrectAnswers + 1 : 0;
+  let isGameOver = false;
+  let correctAnswersCount = 0;
+  while (!isGameOver) {
+    const task = getTask(gameName);
+    const question = car(task);
+    const rightAnswer = cdr(task);
+    console.log(question);
+    const userAnswer = readlineSync.question('Your answer?');
+    const conclusionMessage = getConclusionMessage(userName, userAnswer, rightAnswer);
+    console.log(conclusionMessage);
+    const isUserAnswerCorrect = userAnswer === rightAnswer;
+    correctAnswersCount = getNewCorrectAnswersCount(correctAnswersCount, isUserAnswerCorrect);
+    isGameOver = checkIfGameOver(gameName, isUserAnswerCorrect, correctAnswersCount);
   }
-  console.log(`Congratulations, ${userName}!`);
+
+  const afterGameMessage = getAfterGameMessage(userName, correctAnswersCount);
+  console.log(afterGameMessage);
 };
 
-
-export default myGame;

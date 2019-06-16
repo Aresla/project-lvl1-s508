@@ -2,4 +2,4 @@
 
 import { gameEngine } from '../index';
 
-gameEngine('even');
+gameEngine('prime');

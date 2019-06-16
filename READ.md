@@ -7,3 +7,15 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/096f7726c6cca5541c82/test_coverage)](https://codeclimate.com/github/Aresla/project-lvl1-s508/test_coverage)
 
 [![Build Status](https://travis-ci.org/Aresla/project-lvl1-s508.svg?branch=master)](https://travis-ci.org/Aresla/project-lvl1-s508)
+
+## Game run examples ##
+
+[asciinema-even](https://asciinema.org/a/14m7nC2hmcA4y1nXkIKBFVH8h)
+
+[asciinema-calc](https://asciinema.org/a/0TkhWnugJYlmc74B5UGsvZSS1)
+
+[asciinema-progression](https://asciinema.org/a/VYYV7l4PGEAC2iVUKY2Fk5uc1)
+
+[asciinema-prime](https://asciinema.org/a/CELAkKdembR2PDuEbyLnV30n1)
+
+[asciinema-gcd](https://asciinema.org/a/GJmTu9HaLYp32hWVF81Xi1KhC)
