@@ -1,11 +1,14 @@
-export const findGCD = (num1, num2) => {
-  while (num1 !== 0 && num2 !== 0)
-    if (num1 > num2) {
-      num1 = num1 % num2;
+const findGCD = (num1, num2) => {
+  let numOne = num1;
+  let numTwo = num2;
+  while (numOne !== 0 && numTwo !== 0) {
+    if (numOne > numTwo) {
+      numOne %= numTwo;
+    } else {
+      numTwo %= numOne;
     }
-    else {
-      num2 = num2 % num1;
-    }
-  return num1 > num2? num1 : num2;
+  }
+  return numOne > numTwo ? numOne : numTwo;
 };
 
+export default findGCD;

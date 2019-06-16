@@ -13,7 +13,7 @@ export const generateExpression = (numOne, numTwo, operation) => {
 
 export const generateOperation = () => {
   let operation;
-  switch (generateZeroOneTwo()){
+  switch (generateZeroOneTwo()) {
     case 0: operation = 'add'; break;
     case 1: operation = 'subtract'; break;
     case 2: operation = 'multiply'; break;
@@ -23,9 +23,23 @@ export const generateOperation = () => {
 };
 
 export const calculateExpression = (numOne, numTwo, operation) => {
+  let result;
   switch (operation) {
-    case 'add': return numOne + numTwo;
-    case 'subtract': return numOne - numTwo;
-    case 'multiply': return numOne * numTwo;
+    case 'add': {
+      result = numOne + numTwo;
+      break;
+    }
+    case 'subtract': {
+      result = numOne - numTwo;
+      break;
+    }
+    case 'multiply': {
+      result = numOne * numTwo;
+      break;
+    }
+    default: {
+      console.log('check calculate expression fn');
+    }
   }
+  return result;
 };

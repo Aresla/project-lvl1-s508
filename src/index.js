@@ -1,21 +1,16 @@
 import readlineSync from 'readline-sync';
-import { getGameExplanation } from "./helpers/getGameExplanation";
-import { getTask } from "./helpers/getTask";
-import { checkIfGameOver } from "./helpers/checkIfGameOver";
-import { getAfterGameMessage } from "./helpers/getAfterGameMessage";
-import { getNewCorrectAnswersCount } from "./helpers/getNewCorrectAnswersCount";
-import { getUserName } from "./helpers/getUserName";
-import { getConclusionMessage } from "./helpers/getConclusionMessage";
-import { car, cdr } from "hexlet-pairs";
-
-// gameName:
-//   even
-//   calc
-//   gcd
+import { car, cdr } from 'hexlet-pairs';
+import getGameExplanation from './helpers/getGameExplanation';
+import getTask from './helpers/getTask';
+import checkIfGameOver from './helpers/checkIfGameOver';
+import getAfterGameMessage from './helpers/getAfterGameMessage';
+import getNewCorrectAnswersCount from './helpers/getNewCorrectAnswersCount';
+import getUserName from './helpers/getUserName';
+import getConclusionMessage from './helpers/getConclusionMessage';
 
 const welcomeMessage = 'Welcome to the Brain Games!';
 
-export const gameEngine = (gameName) => {
+const gameEngine = (gameName) => {
   console.log(welcomeMessage);
   const gameExplanation = getGameExplanation(gameName);
   console.log(gameExplanation);
@@ -41,3 +36,4 @@ export const gameEngine = (gameName) => {
   console.log(afterGameMessage);
 };
 
+export default gameEngine;

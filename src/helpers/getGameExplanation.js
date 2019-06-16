@@ -1,4 +1,4 @@
-export const getGameExplanation = (gameName) => {
+const getGameExplanation = (gameName) => {
   switch (gameName) {
     case 'even':
       return 'Answer "yes" if number even otherwise answer "no".';
@@ -14,3 +14,5 @@ export const getGameExplanation = (gameName) => {
       return 'unexpected game name';
   }
 };
+
+export default getGameExplanation;

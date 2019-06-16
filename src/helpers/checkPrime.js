@@ -1,4 +1,4 @@
-export const checkPrime = (num) => {
+const checkPrime = (num) => {
   if (num < 2) {
     return 'no';
   }
@@ -9,3 +9,5 @@ export const checkPrime = (num) => {
   }
   return 'yes';
 };
+
+export default checkPrime;

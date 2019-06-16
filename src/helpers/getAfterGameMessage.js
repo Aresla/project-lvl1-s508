@@ -1,3 +1,6 @@
-export const getAfterGameMessage = (userName, correctAnswersCount) => {
-  return correctAnswersCount === 3 ? `Congratulations, ${userName}!` : '';
+const getAfterGameMessage = (userName, correctAnswersCount) => {
+  const message = correctAnswersCount === 3 ? `Congratulations, ${userName}!` : '';
+  return message;
 };
+
+export default getAfterGameMessage;

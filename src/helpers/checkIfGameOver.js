@@ -1,4 +1,4 @@
-export const checkIfGameOver = (gameName, isUserAnswerCorrect, correctAnswersCount) => {
+const checkIfGameOver = (gameName, isUserAnswerCorrect, correctAnswersCount) => {
   switch (gameName) {
     case 'even': {
       return correctAnswersCount === 3;
@@ -19,3 +19,5 @@ export const checkIfGameOver = (gameName, isUserAnswerCorrect, correctAnswersCou
       return 'unexpected game name';
   }
 };
+
+export default checkIfGameOver;

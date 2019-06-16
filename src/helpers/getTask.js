@@ -1,10 +1,10 @@
-import {generateFromZeroToNine, generateWholeNum} from './generateWholeNum';
-import {calculateExpression, generateExpression, generateOperation} from './generateExpression';
-import {cons} from "hexlet-pairs";
-import {findGCD} from './findGCD';
-import {checkPrime} from './checkPrime';
+import { cons } from 'hexlet-pairs';
+import { generateFromZeroToNine, generateWholeNum } from './generateWholeNum';
+import { calculateExpression, generateExpression, generateOperation } from './generateExpression';
+import findGCD from './findGCD';
+import checkPrime from './checkPrime';
 
-const checkParity = (num) => (num % 2 === 0);
+const checkParity = num => (num % 2 === 0);
 
 const getTaskEven = () => {
   const num = generateWholeNum();
@@ -41,8 +41,7 @@ const getTaskProgression = () => {
       result += ' ..';
       rightAnswer = currentValue.toString();
       currentValue += step;
-    }
-    else {
+    } else {
       result = `${result} ${currentValue}`;
       currentValue += step;
     }
@@ -56,7 +55,7 @@ const getTaskPrime = () => {
   return cons(num, rightAnswer);
 };
 
-export const getTask = (gameName) => {
+const getTask = (gameName) => {
   switch (gameName) {
     case 'even':
       return getTaskEven();
@@ -64,7 +63,7 @@ export const getTask = (gameName) => {
       return getTaskCalc();
     case 'gcd':
       return getTaskGCD();
-    case 'progression' :
+    case 'progression':
       return getTaskProgression();
     case 'prime':
       return getTaskPrime();
@@ -72,3 +71,5 @@ export const getTask = (gameName) => {
       return 'unexpected game name';
   }
 };
+
+export default getTask;

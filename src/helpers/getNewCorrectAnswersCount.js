@@ -1,3 +1,6 @@
-export const getNewCorrectAnswersCount = (currentCount, isUserAnswerCorrect) => {
-  return isUserAnswerCorrect ? currentCount + 1 : 0;
+const getNewCorrectAnswersCount = (currentCount, isUserAnswerCorrect) => {
+  const newCountValue = isUserAnswerCorrect ? currentCount + 1 : 0;
+  return newCountValue;
 };
+
+export default getNewCorrectAnswersCount;
