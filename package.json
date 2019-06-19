@@ -2,6 +2,7 @@
   "name": "braingamestatya",
   "version": "1.1.6",
   "description": "series of small games",
+  "keywords": ["brain-games", "math games"],
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
