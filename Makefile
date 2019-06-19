@@ -26,7 +26,8 @@ start-prime:
 				npm run babel-node -- src/bin/brain-prime.js
 
 publish:
-				npm publish
+				npm publish --dry-run
+				npm link
 
 lint:
-				npx eslint src/
+				npx eslint .
