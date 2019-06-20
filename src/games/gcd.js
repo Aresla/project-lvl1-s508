@@ -1,8 +1,7 @@
 import gameEngine from '..';
 
 const startGame = () => {
-  gameEngine('even');
+  gameEngine('gcd');
 };
-
 
 export default startGame;

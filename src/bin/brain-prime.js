@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import gameEngine from '..';
+import startGame from '../games/prime';
 
-gameEngine('prime');
+startGame();

@@ -1,8 +1,7 @@
 import gameEngine from '..';
 
 const startGame = () => {
-  gameEngine('even');
+  gameEngine('progression');
 };
-
 
 export default startGame;
