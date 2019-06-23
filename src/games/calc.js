@@ -1,7 +1,6 @@
-import gameEngine from '..';
-import {buildGamePackage} from "../index";
-import {generateWholeNum} from "../helpers/generateWholeNum";
-import {calculateExpression, generateExpression, generateOperation} from "../helpers/generateExpression";
+import gameEngine, { buildTask, buildGamePackage } from '..';
+import { generateWholeNum } from '../helpers/generateWholeNum';
+import { calculateExpression, generateExpression, generateOperation } from '../helpers/generateExpression';
 
 const startGame = () => {
   const gameDescription = 'What is the result of the expression?';
@@ -9,9 +8,9 @@ const startGame = () => {
     const numOne = generateWholeNum();
     const numTwo = generateWholeNum();
     const operation = generateOperation();
-    const question = generateExpression(numOne, numTwo, operation);
+    const expression = generateExpression(numOne, numTwo, operation);
     const rightAnswer = calculateExpression(numOne, numTwo, operation).toString();
-    return buildGamePackage(question, rightAnswer);
+    return buildTask(expression, rightAnswer);
   };
   const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
   gameEngine(gamePackage);

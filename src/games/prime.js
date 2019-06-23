@@ -1,4 +1,4 @@
-import gameEngine, { buildGamePackage } from '..';
+import gameEngine, { buildGamePackage, buildTask } from '..';
 import { generateWholeNum } from '../helpers/generateWholeNum';
 
 const checkPrime = (questionNum) => {
@@ -18,11 +18,10 @@ const startGame = () => {
   const taskGenerationFunction = () => {
     const questionNum = generateWholeNum();
     const rightAnswer = checkPrime(questionNum);
-    return buildGamePackage(questionNum, rightAnswer);
+    return buildTask(questionNum, rightAnswer);
   };
   const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
   gameEngine(gamePackage);
 };
 
 export default startGame;
-

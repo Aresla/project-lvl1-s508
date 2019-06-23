@@ -1,4 +1,4 @@
-import gameEngine, { buildGamePackage } from '..';
+import gameEngine, { buildGamePackage, buildTask } from '..';
 import { generateFromZeroToNine, generateWholeNum } from '../helpers/generateWholeNum';
 
 const startGame = () => {
@@ -20,8 +20,8 @@ const startGame = () => {
         currentValue += step;
       }
     }
-    return buildGamePackage(result, rightAnswer);
-};
+    return buildTask(result, rightAnswer);
+  };
   const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
   gameEngine(gamePackage);
 };

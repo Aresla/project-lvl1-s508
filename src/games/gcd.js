@@ -1,4 +1,4 @@
-import gameEngine, { buildGamePackage } from '..';
+import gameEngine, { buildGamePackage, buildTask } from '..';
 import { generateWholeNum } from '../helpers/generateWholeNum';
 
 const findGCD = (num1, num2) => {
@@ -21,7 +21,7 @@ const startGame = () => {
     const num2 = generateWholeNum();
     const question = `${num1} ${num2}`;
     const rightAnswer = findGCD(num1, num2).toString();
-    return buildGamePackage(question, rightAnswer);
+    return buildTask(question, rightAnswer);
   };
   const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
   gameEngine(gamePackage);

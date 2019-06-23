@@ -1,11 +1,17 @@
 import readlineSync from 'readline-sync';
 import { car, cdr, cons } from 'hexlet-pairs';
-import getUserName from './helpers/getUserName';
 
 const welcomeMessage = 'Welcome to the Brain Games!';
 
+const getUserName = () => {
+  const userName = readlineSync.question('May I have your name?');
+  return userName;
+};
 
-export const buildGamePackage = (gameDescription, gameFunction) => cons(gameDescription, gameFunction);
+export const buildGamePackage = (gameDescription, gameFunction) => {
+  cons(gameDescription, gameFunction);
+};
+
 const getGameDescription = gamePackage => car(gamePackage);
 const getTaskGenerationFunction = gamePackage => cdr(gamePackage);
 
@@ -14,8 +20,7 @@ const getQuestion = task => car(task);
 const getRightAnswer = task => cdr(task);
 
 
-
-export const gameEngine = (gamePackage) => {
+const gameEngine = (gamePackage) => {
   console.log(welcomeMessage);
   const gameDescription = getGameDescription(gamePackage);
   const taskGenerationFunction = getTaskGenerationFunction(gamePackage);
@@ -32,8 +37,8 @@ export const gameEngine = (gamePackage) => {
     rightAnswer = getRightAnswer(task);
     console.log(`Question: ${question}`);
     userAnswer = readlineSync.question('Your answer?');
-    const isUserAnswerCorrect = userAnswer === rightAnswer;
-    if (!isUserAnswerCorrect) {
+    const userAnswerCorrect = userAnswer === rightAnswer;
+    if (!userAnswerCorrect) {
       console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${rightAnswer}.\nLet's try again, ${userName}!`);
       break;
     }
@@ -45,33 +50,5 @@ export const gameEngine = (gamePackage) => {
     i += 1;
   }
 };
-
-
-
-/*const gameEngine = (gameName) => {
-  console.log(welcomeMessage);
-  const gameExplanation = getGameExplanation(gameName);
-  console.log(gameExplanation);
-  const userName = getUserName();
-  console.log(`Hello, ${userName}!`);
-
-  let isGameOver = false;
-  let correctAnswersCount = 0;
-  while (!isGameOver) {
-    const task = getTask(gameName);
-    const question = car(task);
-    const rightAnswer = cdr(task);
-    console.log(question);
-    const userAnswer = readlineSync.question('Your answer?');
-    const conclusionMessage = getConclusionMessage(userName, userAnswer, rightAnswer);
-    console.log(conclusionMessage);
-    const isUserAnswerCorrect = userAnswer === rightAnswer;
-    correctAnswersCount = getNewCorrectAnswersCount(correctAnswersCount, isUserAnswerCorrect);
-    isGameOver = checkIfGameOver(gameName, isUserAnswerCorrect, correctAnswersCount);
-  }
-
-  const afterGameMessage = getAfterGameMessage(userName, correctAnswersCount);
-  console.log(afterGameMessage);
-};*/
 
 export default gameEngine;
