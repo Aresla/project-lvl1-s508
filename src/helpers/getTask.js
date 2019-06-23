@@ -9,7 +9,7 @@ const checkParity = num => (num % 2 === 0);
 const getTaskEven = () => {
   const num = generateWholeNum();
   const rightAnswer = checkParity(num) ? 'yes' : 'no';
-  return cons(num, rightAnswer);
+  return buildGamePackage(num, rightAnswer);
 };
 
 const getTaskCalc = () => {
@@ -18,7 +18,7 @@ const getTaskCalc = () => {
   const operation = generateOperation();
   const expression = generateExpression(numOne, numTwo, operation);
   const rightAnswer = calculateExpression(numOne, numTwo, operation).toString();
-  return cons(expression, rightAnswer);
+  return buildGamePackage(expression, rightAnswer);
 };
 
 const getTaskGCD = () => {
@@ -26,7 +26,7 @@ const getTaskGCD = () => {
   const num2 = generateWholeNum();
   const question = `${num1} ${num2}`;
   const rightAnswer = findGCD(num1, num2).toString();
-  return cons(question, rightAnswer);
+  return buildGamePackage(question, rightAnswer);
 };
 
 const getTaskProgression = () => {
@@ -46,13 +46,13 @@ const getTaskProgression = () => {
       currentValue += step;
     }
   }
-  return cons(result, rightAnswer);
+  return buildGamePackage(result, rightAnswer);
 };
 
 const getTaskPrime = () => {
   const num = generateWholeNum();
   const rightAnswer = checkPrime(num);
-  return cons(num, rightAnswer);
+  return buildGamePackage(num, rightAnswer);
 };
 
 const getTask = (gameName) => {
