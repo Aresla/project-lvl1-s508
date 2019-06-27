@@ -1,6 +1,7 @@
 
 const generateWholeNum = (rangeFrom, rangeTo) => {
-  return Math.floor((Math.random() * (rangeTo - rangeFrom)) + rangeFrom);
+  const randomFloat = (Math.random() * (rangeTo - rangeFrom)) + rangeFrom;
+  return Math.floor(randomFloat);
 };
 
 export default generateWholeNum;

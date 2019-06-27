@@ -1,7 +1,7 @@
 # Brain Games #
 ## Author: Tatiana Panteleychuk ##
 
-To install games type: npm install braingames.
+To install games type: npm install braingamestatya
 
 The game Calc -  calculate the value of the expression.<br>
 To start the game type: brain-calc.

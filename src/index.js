@@ -3,10 +3,7 @@ import { car, cdr, cons } from 'hexlet-pairs';
 
 const welcomeMessage = 'Welcome to the Brain Games!';
 
-export const buildGamePackage = (gameDescription, gameFunction) => {
-  return cons(gameDescription, gameFunction);
-};
-
+export const buildGamePackage = (description, fn) => cons(description, fn);
 const getGameDescription = gamePackage => car(gamePackage);
 const getTaskGenerator = gamePackage => cdr(gamePackage);
 
