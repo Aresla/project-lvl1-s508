@@ -1,16 +1,18 @@
 import gameEngine, { buildGamePackage, buildTask } from '..';
-import { generateWholeNum } from '../helpers/generateWholeNum';
+import generateWholeNum from '../helpers/generateWholeNum';
 
-const checkParity = num => (num % 2 === 0);
+const isEven = num => num % 2 === 0;
+
+const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
 const startGame = () => {
-  const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
-  const taskGenerationFunction = () => {
-    const questionNum = generateWholeNum();
-    const rightAnswer = checkParity(questionNum) ? 'yes' : 'no';
-    return buildTask(questionNum, rightAnswer);
+  const taskGenerator = () => {
+    const question = generateWholeNum(1, 10);
+    const rightAnswer = isEven(question) ? 'yes' : 'no';
+    return buildTask(question, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
+  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
+
   gameEngine(gamePackage);
 };
 

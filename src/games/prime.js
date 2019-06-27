@@ -1,26 +1,27 @@
 import gameEngine, { buildGamePackage, buildTask } from '..';
-import { generateWholeNum } from '../helpers/generateWholeNum';
+import generateWholeNum from '../helpers/generateWholeNum';
 
-const checkPrime = (questionNum) => {
-  if (questionNum < 2) {
-    return 'no';
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
   }
-  for (let i = 2; i < questionNum; i += 1) {
-    if (questionNum % i === 0) {
-      return 'no';
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const startGame = () => {
-  const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  const taskGenerationFunction = () => {
-    const questionNum = generateWholeNum();
-    const rightAnswer = checkPrime(questionNum);
-    return buildTask(questionNum, rightAnswer);
+  const taskGenerator = () => {
+    const num = generateWholeNum(1, 10);
+    const rightAnswer = isPrime(num) ? 'yes' : 'no';
+    return buildTask(num, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerationFunction);
+  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
   gameEngine(gamePackage);
 };
 
