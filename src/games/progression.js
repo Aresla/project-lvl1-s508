@@ -1,18 +1,20 @@
-import gameEngine, { buildGamePackage, buildTask } from '..';
-import generateWholeNum from '../helpers/generateWholeNum';
+import gameEngine from '..';
+import getInteger from './getInteger';
+import { cons } from 'hexlet-pairs';
+
 
 const numberOfProgressionMembers = 10;
 
 const gameDescription = 'What number is missing in the progression?';
 
-const startGame = () => {
-  const taskGenerator = () => {
-    const start = generateWholeNum(1, 10);
+const getGamePackage = () => {
+  const getTask = () => {
+    const start = getInteger(1, 10);
     let result = '';
     let currentValue = start;
     let rightAnswer;
-    const step = generateWholeNum(2, 10);
-    const missingMemberIndex = generateWholeNum(0, 9);
+    const step = getInteger(2, 10);
+    const missingMemberIndex = getInteger(0, 9);
     for (let i = 0; i < numberOfProgressionMembers; i += 1) {
       if (i === missingMemberIndex) {
         result = `${result} ..`;
@@ -23,9 +25,14 @@ const startGame = () => {
         currentValue += step;
       }
     }
-    return buildTask(result, rightAnswer);
+    return cons(result, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
+  const gamePackage = cons(gameDescription, getTask);
+  return gamePackage;
+};
+
+const startGame = () => {
+  const gamePackage = getGamePackage();
   gameEngine(gamePackage);
 };
 

@@ -1,11 +1,13 @@
-import gameEngine, { buildGamePackage, buildTask } from '..';
-import generateWholeNum from '../helpers/generateWholeNum';
+import gameEngine from '..';
+import getInteger from './getInteger';
+import { cons } from 'hexlet-pairs';
+
 
 const isPrime = (num) => {
   if (num < 2) {
     return false;
   }
-  for (let i = 2; i < num; i += 1) {
+  for (let i = 2; i < num / 2; i += 1) {
     if (num % i === 0) {
       return false;
     }
@@ -15,13 +17,18 @@ const isPrime = (num) => {
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const startGame = () => {
-  const taskGenerator = () => {
-    const num = generateWholeNum(1, 10);
-    const rightAnswer = isPrime(num) ? 'yes' : 'no';
-    return buildTask(num, rightAnswer);
+const getGamePackage = () => {
+  const getTask = () => {
+    const question = getInteger(1, 10);
+    const rightAnswer = isPrime(question) ? 'yes' : 'no';
+    return cons(question, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
+  const gamePackage = cons(gameDescription, getTask);
+  return gamePackage;
+};
+
+const startGame = () => {
+  const gamePackage = getGamePackage();
   gameEngine(gamePackage);
 };
 

@@ -1,3 +1,9 @@
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/096f7726c6cca5541c82/maintainability)](https://codeclimate.com/github/Aresla/project-lvl1-s508/maintainability)
+
+[![Build Status](https://travis-ci.org/Aresla/project-lvl1-s508.svg?branch=master)](https://travis-ci.org/Aresla/project-lvl1-s508)
+
+
 # Brain Games #
 ## Author: Tatiana Panteleychuk ##
 
@@ -17,11 +23,6 @@ To start the game type: brain-prime.
 
 The game Progression - find a missing number in the progression.<br>
 To start the game type: brain-progression.
-
-
-[![Maintainability](https://api.codeclimate.com/v1/badges/096f7726c6cca5541c82/maintainability)](https://codeclimate.com/github/Aresla/project-lvl1-s508/maintainability)
-
-[![Build Status](https://travis-ci.org/Aresla/project-lvl1-s508.svg?branch=master)](https://travis-ci.org/Aresla/project-lvl1-s508)
 
 ## Game run examples ##
 

@@ -1,34 +1,34 @@
-import gameEngine, { buildTask, buildGamePackage } from '..';
-import generateWholeNum from '../helpers/generateWholeNum';
+import gameEngine from '..';
+import getInteger from './getInteger';
+import { cons } from 'hexlet-pairs';
+
 
 const operations = {
-  1: {
-    symbol: '+',
-    operation: (x, y) => x + y,
-  },
-  2: {
-    symbol: '-',
-    operation: (x, y) => x - y,
-  },
-  3: {
-    symbol: '*',
-    operation: (x, y) => x * y,
-  },
+  '+': (x, y) => x + y,
+  '-': (x, y) => x - y,
+  '*': (x, y) => x * y,
 };
+const signs = Object.keys(operations);
 
 const gameDescription = 'What is the result of the expression?';
 
-const startGame = () => {
-  const taskGenerator = () => {
-    const numOne = generateWholeNum(1, 10);
-    const numTwo = generateWholeNum(1, 10);
-    const operationKey = generateWholeNum(1, 3);
-    const { symbol, operation } = operations[operationKey];
-    const expression = `${numOne} ${symbol} ${numTwo}`;
-    const rightAnswer = operation(numOne, numTwo).toString();
-    return buildTask(expression, rightAnswer);
+const getGamePackage = () => {
+  const getTask = () => {
+    const a = getInteger(1, 10);
+    const b = getInteger(1, 10);
+    const signIndex = getInteger(1, signs.length);
+    const sign = signs[signIndex - 1];
+    const operation = operations[sign];
+    const question = `${a} ${sign} ${b}`;
+    const rightAnswer = operation(a, b).toString();
+    return cons(question, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
+  const gamePackage = cons(gameDescription, getTask);
+  return gamePackage;
+};
+
+const startGame = () => {
+  const gamePackage = getGamePackage();
   gameEngine(gamePackage);
 };
 

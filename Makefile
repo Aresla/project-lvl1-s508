@@ -24,6 +24,7 @@ start-prime:
 
 publish:
 		npm publish --dry-run
+		    npm link
 
 lint:
 		npx eslint .

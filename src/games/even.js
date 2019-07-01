@@ -1,18 +1,24 @@
-import gameEngine, { buildGamePackage, buildTask } from '..';
-import generateWholeNum from '../helpers/generateWholeNum';
+import gameEngine from '..';
+import getInteger from './getInteger';
+import { cons } from 'hexlet-pairs';
+
 
 const isEven = num => num % 2 === 0;
 
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
-const startGame = () => {
-  const taskGenerator = () => {
-    const question = generateWholeNum(1, 10);
+const getGamePackage = () => {
+  const getTask = () => {
+    const question = getInteger(1, 10);
     const rightAnswer = isEven(question) ? 'yes' : 'no';
-    return buildTask(question, rightAnswer);
+    return cons(question, rightAnswer);
   };
-  const gamePackage = buildGamePackage(gameDescription, taskGenerator);
+  const gamePackage = cons(gameDescription, getTask);
+  return gamePackage;
+};
 
+const startGame = () => {
+  const gamePackage = getGamePackage();
   gameEngine(gamePackage);
 };
 
