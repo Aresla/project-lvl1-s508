@@ -26,12 +26,12 @@ To start the game type: brain-progression.
 
 ## Game run examples ##
 
-[asciinema-even](https://asciinema.org/a/14m7nC2hmcA4y1nXkIKBFVH8h)
+[asciinema-even](https://asciinema.org/a/OMTsHGBevDOVpJxa1n2YqhK5Y)
 
-[asciinema-calc](https://asciinema.org/a/0TkhWnugJYlmc74B5UGsvZSS1)
+[asciinema-calc](https://asciinema.org/a/fjQpKUn0FW1oCeqOAi4pM9sm3)
 
-[asciinema-progression](https://asciinema.org/a/VYYV7l4PGEAC2iVUKY2Fk5uc1)
+[asciinema-progression](https://asciinema.org/a/EGL5XNv2AOWbty20DTEECM1VR)
 
-[asciinema-prime](https://asciinema.org/a/CELAkKdembR2PDuEbyLnV30n1)
+[asciinema-prime](https://asciinema.org/a/yNk9bbHXETEgdHkgDO6UwtS99)
 
-[asciinema-gcd](https://asciinema.org/a/GJmTu9HaLYp32hWVF81Xi1KhC)
+[asciinema-gcd](https://asciinema.org/a/mwMPZ6CjuzDkoOkyievt2IAQK)
