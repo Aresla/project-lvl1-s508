@@ -18,21 +18,16 @@ const findGcd = (num1, num2) => {
 
 const gameDescription = 'Find the greatest common divisor of given numbers.';
 
-const getGamePackage = () => {
-  const getTask = () => {
-    const a = getInteger(1, 10);
-    const b = getInteger(1, 10);
-    const question = `${a} ${b}`;
-    const rightAnswer = findGcd(a, b).toString();
-    return cons(question, rightAnswer);
-  };
-  const gamePackage = cons(gameDescription, getTask);
-  return gamePackage;
+const getTask = () => {
+  const a = getInteger(1, 10);
+  const b = getInteger(1, 10);
+  const question = `${a} ${b}`;
+  const rightAnswer = findGcd(a, b).toString();
+  return cons(question, rightAnswer);
 };
 
 const startGame = () => {
-  const gamePackage = getGamePackage();
-  gameEngine(gamePackage);
+  gameEngine(gameDescription, getTask);
 };
 
 export default startGame;
