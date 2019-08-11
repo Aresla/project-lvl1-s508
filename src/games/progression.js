@@ -1,35 +1,26 @@
-import gameEngine from '..';
-import getInteger from './getInteger';
+import playGame from '..';
+import getRandomInteger from '../helpers/getRandomInteger';
 import { cons } from 'hexlet-pairs';
 
-const membersCount = 10;
-const startMin = 0;
-const startMax = 10;
-const stepMin = 1;
-const stepMax = 5;
+const progressionLength = 10;
 const gameDescription = 'What number is missing in the progression?';
 
-const getProgression = () => {
-  const start = getInteger(startMin, startMax);
-  const step = getInteger(stepMin, stepMax);
+const getProgression = (start, step) => {
   const progression = [];
-  for (let i = 0; i < membersCount; i += 1) {
+  for (let i = 0; i < progressionLength; i += 1) {
     progression.push(start + step * i);
   }
   return progression;
 };
 
 const getTask = () => {
-  const progression = getProgression();
-  const missingMemberIndex = getInteger(0, membersCount);
-  const missingMember = progression[missingMemberIndex];
-  const rightAnswer = missingMember.toString();
+  const start = getRandomInteger(0, 10);
+  const step = getRandomInteger(1, 5);
+  const progression = getProgression(start, step);
+  const missingMemberIndex = getRandomInteger(0, progressionLength);
+  const rightAnswer = progression[missingMemberIndex].toString();
   progression[missingMemberIndex] = '..';
-  const question = (`${progression.join(' ')}`);
+  const question = `${progression.join(' ')}`;
   return cons(question, rightAnswer);
 };
-const startGame = () => {
-  gameEngine(gameDescription, getTask);
-};
-
-export default startGame;
+export default () => playGame(gameDescription, getTask);

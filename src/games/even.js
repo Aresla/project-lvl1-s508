@@ -1,5 +1,5 @@
-import gameEngine from '..';
-import getInteger from './getInteger';
+import playGame from '..';
+import getRandomInteger from '../helpers/getRandomInteger';
 import { cons } from 'hexlet-pairs';
 
 const isEven = num => num % 2 === 0;
@@ -7,13 +7,9 @@ const isEven = num => num % 2 === 0;
 const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
 
 const getTask = () => {
-  const question = getInteger(1, 10);
+  const question = getRandomInteger(1, 10);
   const rightAnswer = isEven(question) ? 'yes' : 'no';
   return cons(question, rightAnswer);
 };
 
-const startGame = () => {
-  gameEngine(gameDescription, getTask);
-};
-
-export default startGame;
+export default () => playGame(gameDescription, getTask);
