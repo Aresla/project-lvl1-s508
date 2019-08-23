@@ -2,7 +2,6 @@ import playGame from '..';
 import getRandomInteger from '../helpers/getRandomInteger';
 import { cons } from 'hexlet-pairs';
 
-
 const findGcd = (num1, num2) => {
   let numOne = num1;
   let numTwo = num2;

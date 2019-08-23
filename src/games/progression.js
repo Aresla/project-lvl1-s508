@@ -5,9 +5,9 @@ import { cons } from 'hexlet-pairs';
 const progressionLength = 10;
 const gameDescription = 'What number is missing in the progression?';
 
-const getProgression = (start, step) => {
+const getProgression = (start, step, length) => {
   const progression = [];
-  for (let i = 0; i < progressionLength; i += 1) {
+  for (let i = 0; i < length; i += 1) {
     progression.push(start + step * i);
   }
   return progression;
@@ -16,11 +16,11 @@ const getProgression = (start, step) => {
 const getTask = () => {
   const start = getRandomInteger(0, 10);
   const step = getRandomInteger(1, 5);
-  const progression = getProgression(start, step);
+  const progression = getProgression(start, step, progressionLength);
   const missingMemberIndex = getRandomInteger(0, progressionLength);
   const rightAnswer = progression[missingMemberIndex].toString();
   progression[missingMemberIndex] = '..';
-  const question = `${progression.join(' ')}`;
+  const question = progression.join(' ');
   return cons(question, rightAnswer);
 };
 export default () => playGame(gameDescription, getTask);
